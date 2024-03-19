@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a0f4e09d-9089-4f68-949b-d31914616ed4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RexStudios.LanguageBasedNotification</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Core\EntityRetrieverBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IEntityRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ArrayExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CRMExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CryptographyExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateTimeExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\GuidExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\JsonSerializerExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Http\HttpException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Http\HttpResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Http\HttpService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Http\IHttpService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ILanguageCodeRepo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INotificationRepo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INotificationTypeRepo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IUserRepo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IUserSettingsRepo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IWebRequestAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LanguageCodeDL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NotificationDL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NotificationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NotificationTypeDL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserDL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserSettingsDL.cs" />
+  </ItemGroup>
+</Project>

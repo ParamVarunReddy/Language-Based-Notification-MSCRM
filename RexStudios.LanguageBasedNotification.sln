@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RexStudios.LanguageBasedNotification", "RexStudios.LanguageBasedNotification.shproj", "{A0F4E09D-9089-4F68-949B-D31914616ED4}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A73D96B6-0BB6-4139-9F56-BA7FF5F38CA1}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RexStudios.LanguageBasedNotification.projitems*{a0f4e09d-9089-4f68-949b-d31914616ed4}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
