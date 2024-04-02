@@ -62,16 +62,17 @@
                             AttributeName = "rex",
                             Operator = ConditionOperator.Equal,
                             Values = { EntityLogicalName }
-                        },
-                        new ConditionExpression()
-                        {
-                            AttributeName = "rex",
-                            Operator = ConditionOperator.Equal,
-                            Values = { languagecode }
                         }
                     }
                     }
                 };
+
+                LinkEntity languageCodeLink = new LinkEntity(base.EntityLogicalName, "rex_languagecode", "rex_lcid", "rex_languagecodeid", JoinOperator.Inner);
+                languageCodeLink.EntityAlias = "ad";
+                languageCodeLink.Columns = new ColumnSet(true);
+                languageCodeLink.LinkCriteria.AddCondition("rex_language", ConditionOperator.Equal, languagecode);
+                query.LinkEntities.Add(languageCodeLink);
+
                 tracingService?.Trace($"1--> GetNotificationTextByEntityName: Query expression is completed ");
                 return base.RetrieveMultipleEntities(query);
             }
@@ -137,7 +138,7 @@
                         Conditions = {
                         new ConditionExpression()
                         {
-                            AttributeName = "rex_",
+                            AttributeName = "name",
                             Operator = ConditionOperator.Equal,
                             Values = { CommandText }
                         }
@@ -181,28 +182,39 @@
                     Criteria = new FilterExpression()
                     {
                         Conditions = {
-                        new ConditionExpression()
-                        {
-                            AttributeName = "rex",
-                            Operator = ConditionOperator.Equal,
-                            Values = { EntityLogicalName }
-                        },
-                        new ConditionExpression()
-                        {
-                            AttributeName = "rex",
-                            Operator = ConditionOperator.Equal,
-                            Values = { EntityLogicalName }
-                        },
-                        new ConditionExpression()
-                        {
-                            AttributeName = "rex",
-                            Operator = ConditionOperator.Equal,
-                            Values = { EntityLogicalName }
-                        }
-                    },
+            new ConditionExpression()
+            {
+                AttributeName = "rex_entityname",
+                Operator = ConditionOperator.Equal,
+                Values = { EntityLogicalName }
+            },
+            new ConditionExpression()
+            {
+                AttributeName = "name",
+                Operator = ConditionOperator.Equal,
+                Values = { CommandText }
+            }
+        },
                         FilterOperator = LogicalOperator.And
                     }
                 };
+
+                // Adding Link Entity rex_notificationtype directly within the LinkEntities collection
+                query.LinkEntities.Add(new LinkEntity(base.EntityLogicalName, "rex_notificationtype", "rex_notificationtype", "rex_notificationtypeid", JoinOperator.Inner)
+                {
+                    EntityAlias = "ab",
+                    Columns = new ColumnSet(true),
+                    LinkCriteria = new FilterExpression()
+                    {
+                        FilterOperator = LogicalOperator.And,
+                        Conditions =
+        {
+            new ConditionExpression("rex_name", ConditionOperator.Equal, NotificationType)
+        }
+                    }
+                });
+
+
                 tracingService?.Trace($"1--> GetNotificationTextByEntityName: Query expression is completed ");
                 return base.RetrieveMultipleEntities(query).ToList();
             }
@@ -219,7 +231,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Get notification text by lanaguagecode
         /// </summary>
         /// <param name="entityName"></param>
         /// <param name="commandText"></param>
@@ -242,26 +254,35 @@
                         Conditions = {
                         new ConditionExpression()
                         {
-                            AttributeName = "rex",
+                            AttributeName = "rex_entityname",
                             Operator = ConditionOperator.Equal,
                             Values = { EntityLogicalName }
                         },
                         new ConditionExpression()
                         {
-                            AttributeName = "rex",
+                            AttributeName = "name",
                             Operator = ConditionOperator.Equal,
-                            Values = { EntityLogicalName }
-                        },
-                        new ConditionExpression()
-                        {
-                            AttributeName = "rex",
-                            Operator = ConditionOperator.Equal,
-                            Values = { EntityLogicalName }
+                            Values = { commandText }
                         }
                     },
                         FilterOperator = LogicalOperator.And
                     }
                 };
+
+                query.LinkEntities.Add(new LinkEntity(base.EntityLogicalName, "rex_languagecode", "rex_language", "rex_languagecodeid", JoinOperator.Inner)
+                {
+                    EntityAlias = "ad",
+                    Columns = new ColumnSet(true),
+                    LinkCriteria = new FilterExpression()
+                    {
+                        FilterOperator = LogicalOperator.And,
+                        Conditions =
+        {
+            new ConditionExpression("rex_language", ConditionOperator.Equal, languageCode)
+        }
+                    }
+                });
+
                 tracingService?.Trace($"1--> GetNotificationTexts: Query expression is completed ");
                 return base.RetrieveMultipleEntities(query).FirstOrDefault();
             }

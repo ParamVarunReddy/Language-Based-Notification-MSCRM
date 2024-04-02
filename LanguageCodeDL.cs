@@ -92,7 +92,7 @@ namespace RexStudios.LanguageDependentNotification
                         Conditions = {
                         new ConditionExpression()
                         {
-                            AttributeName = "rex_",
+                            AttributeName = "rex_language",
                             Operator = ConditionOperator.Equal,
                             Values = {languageCode}
                         }
@@ -134,7 +134,7 @@ namespace RexStudios.LanguageDependentNotification
                         Conditions = {
                         new ConditionExpression()
                         {
-                            AttributeName = "rex_",
+                            AttributeName = "rex_culturenet",
                             Operator = ConditionOperator.Equal,
                             Values = {culture}
                         }
