@@ -9,21 +9,13 @@
     {
         private INotificationRepo _notificationrepo;
         private INotificationTypeRepo _notificationTypeRepo;
-        private UserService _userService;
         private readonly ITracingService _tracingService;
-        private Guid ContextUserId { get; set; }
 
-        public NotificationService(IOrganizationService organizationService, ITracingService tracingService, Guid userId)
+        public NotificationService(IOrganizationService organizationService, ITracingService tracingService)
         {
             _tracingService = tracingService;
             _notificationrepo = new NotificationDL(organizationService, tracingService);
             _notificationTypeRepo = new NotificationTypeDL(organizationService, tracingService);
-            _userService = new UserService(organizationService, tracingService);
-            if (GuidExtensions.IsNullOrEmpty(userId)) {
-                throw new ArgumentException("execution Context User Id is null");
-            }
-            
-            ContextUserId = userId;
         }
 
         /// <summary>
@@ -92,8 +84,6 @@
         {
             try
             {
-                if (languagecode == null || languagecode == 0)
-                    languagecode = _userService.GetUserLanguageFromUser(ContextUserId);
                 return _notificationrepo.GetNotificationTextByEntityName(entityName, languagecode);
 
             }
