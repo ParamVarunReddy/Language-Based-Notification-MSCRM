@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RexStudios.LanguageBasedNotification", "RexStudios.LanguageBasedNotification.shproj", "{A0F4E09D-9089-4F68-949B-D31914616ED4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RexStudios.LDN.Notifications", "RexStudios.LDN.Notifications.csproj", "{4AA72520-511A-4045-8312-DAEF5B5F8FB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RexStudios.LDN.Notifications", "SamplePlugin\RexStudios.LDN.Notifications.csproj", "{4AA72520-511A-4045-8312-DAEF5B5F8FB3}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RexStudios.LanguageBasedNotification", "..\RexStudios.LanguageBasedNotification.shproj", "{A0F4E09D-9089-4F68-949B-D31914616ED4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A73D96B6-0BB6-4139-9F56-BA7FF5F38CA1}
+		SolutionGuid = {0EF4D5A2-6F20-4153-A0EC-926F7A29301A}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		RexStudios.LanguageBasedNotification.projitems*{4aa72520-511a-4045-8312-daef5b5f8fb3}*SharedItemsImports = 4
-		RexStudios.LanguageBasedNotification.projitems*{a0f4e09d-9089-4f68-949b-d31914616ed4}*SharedItemsImports = 13
+		..\RexStudios.LanguageBasedNotification.projitems*{4aa72520-511a-4045-8312-daef5b5f8fb3}*SharedItemsImports = 4
+		..\RexStudios.LanguageBasedNotification.projitems*{a0f4e09d-9089-4f68-949b-d31914616ed4}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
